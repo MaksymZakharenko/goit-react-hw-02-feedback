@@ -53,14 +53,16 @@ class Main extends Component {
 
   render() {
     return (
-      <Section>
-        <div className={styles.container}>
+      <div className={styles.container}>
+        <Section title={"Please leave feedback"}>
           <FeedbackOptions
             countGoodFeedback={this.countGoodFeedback}
             countNeutralFeedback={this.countNeutralFeedback}
             countBadFeedback={this.countBadFeedback}
           />
-          <div className={styles.statistics}>
+        </Section>
+        <div className={styles.statistics}>
+          <Section title={"Statistics"}>
             <Statistics
               state={this.state}
               countGoodFeedback={this.countGoodFeedback}
@@ -69,9 +71,9 @@ class Main extends Component {
               total={this.total}
               positivePercentage={this.positivePercentage}
             />
-          </div>
+          </Section>
         </div>
-      </Section>
+      </div>
     );
   }
 }

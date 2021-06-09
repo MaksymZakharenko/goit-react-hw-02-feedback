@@ -9,16 +9,15 @@ const Statistics = ({
 }) => {
   return (
     <>
-      <h2>Statistics:</h2>
       {total() > 0 ? (
         <>
-          <span className={styles.count}>Good: {state.good}</span>
-          <span className={styles.count}>Neutral: {state.neutral}</span>
-          <span className={styles.count}>Bad: {state.bad}</span>
-          <span className={styles.count}>Total: {total()}</span>
-          <span className={styles.count}>
+          <p className={styles.count}>Good: {state.good}</p>
+          <p className={styles.count}>Neutral: {state.neutral}</p>
+          <p className={styles.count}>Bad: {state.bad}</p>
+          <p className={styles.count}>Total: {total()}</p>
+          <p className={styles.count}>
             Positive feedback: <span className={styles.percent}>{positivePercentage()} %</span>
-          </span>
+          </p>
         </>
       ) : (
         <Notification message="No feedback given" />

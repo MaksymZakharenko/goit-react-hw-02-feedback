@@ -1,0 +1,13 @@
+.count {
+  margin: 0 20px;
+  font-size: 25px;
+  font-weight: 800;
+  font-style: italic;
+}
+
+.percent {
+  color: red;
+  font-size: 25px;
+  font-weight: 800;
+  font-style: italic;
+}

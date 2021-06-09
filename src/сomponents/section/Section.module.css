@@ -1,0 +1,8 @@
+.title {
+  width: 285px;
+  background-color: rgb(226, 111, 211);
+  border: 1px solid;
+  box-sizing: border-box;
+  padding-left: 12px;
+  border-radius: 10px;
+}

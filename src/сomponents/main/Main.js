@@ -11,65 +11,72 @@ class Main extends Component {
     bad: 0,
   };
 
-  countGoodFeedback = () => {
+  // countGoodFeedback = () => {
+  //   this.setState((prevState) => {
+  //     const { good } = prevState;
+  //     return {
+  //       good: good + 1,
+  //     };
+  //   });
+  // };
+
+  // countNeutralFeedback = () => {
+  //   this.setState((prevState) => {
+  //     const { neutral } = prevState;
+  //     return {
+  //       neutral: neutral + 1,
+  //     };
+  //   });
+  // };
+
+  // countBadFeedback = () => {
+  //   this.setState((prevState) => {
+  //     const { bad } = prevState;
+  //     return {
+  //       bad: bad + 1,
+  //     };
+  //   });
+  // };
+
+  onLeaveFeedback = (scoreName) => {
     this.setState((prevState) => {
-      const { good } = prevState;
+      const oldValue = prevState[scoreName];
       return {
-        good: good + 1,
+        [scoreName]: oldValue + 1,
       };
     });
   };
 
-  countNeutralFeedback = () => {
-    this.setState((prevState) => {
-      const { neutral } = prevState;
-      return {
-        neutral: neutral + 1,
-      };
-    });
-  };
-
-  countBadFeedback = () => {
-    this.setState((prevState) => {
-      const { bad } = prevState;
-      return {
-        bad: bad + 1,
-      };
-    });
-  };
-
-  total = () => {
+  countTotalFeedback = () => {
     const { good, neutral, bad } = this.state;
     const total = good + neutral + bad;
     return total;
   };
 
-  positivePercentage = () => {
+  countPositiveFeedbackPercentage = () => {
     const { good } = this.state;
-    const total = this.total();
+    const total = this.countTotalFeedback();
     const positivePercentage = Math.round((good / total) * 100);
     return positivePercentage;
   };
 
   render() {
+    const total = this.countTotalFeedback();
+    const positivePercentage = this.countPositiveFeedbackPercentage();
+
     return (
       <div className={styles.container}>
         <Section title={"Please leave feedback"}>
-          <FeedbackOptions
-            countGoodFeedback={this.countGoodFeedback}
-            countNeutralFeedback={this.countNeutralFeedback}
-            countBadFeedback={this.countBadFeedback}
-          />
+          <FeedbackOptions onLeaveFeedback={this.onLeaveFeedback} />
         </Section>
         <div className={styles.statistics}>
           <Section title={"Statistics"}>
             <Statistics
-              state={this.state}
-              countGoodFeedback={this.countGoodFeedback}
-              countNeutralFeedback={this.countNeutralFeedback}
-              countBadFeedback={this.countBadFeedback}
-              total={this.total}
-              positivePercentage={this.positivePercentage}
+              good={this.state.good}
+              neutral={this.state.neutral}
+              bad={this.state.bad}
+              total={total}
+              positivePercentage={positivePercentage}
             />
           </Section>
         </div>

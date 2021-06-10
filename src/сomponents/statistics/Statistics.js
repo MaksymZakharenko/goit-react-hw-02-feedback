@@ -2,21 +2,18 @@ import React from "react";
 import Notification from "../notification/Notification";
 import styles from "./Statistics.module.css";
 
-const Statistics = ({
-  state,
-  total,
-  positivePercentage,
-}) => {
+const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
   return (
     <>
-      {total() > 0 ? (
+      {total ? (
         <>
-          <p className={styles.count}>Good: {state.good}</p>
-          <p className={styles.count}>Neutral: {state.neutral}</p>
-          <p className={styles.count}>Bad: {state.bad}</p>
-          <p className={styles.count}>Total: {total()}</p>
+          <p className={styles.count}>Good: {good}</p>
+          <p className={styles.count}>Neutral: {neutral}</p>
+          <p className={styles.count}>Bad: {bad}</p>
+          <p className={styles.count}>Total: {total}</p>
           <p className={styles.count}>
-            Positive feedback: <span className={styles.percent}>{positivePercentage()} %</span>
+            Positive feedback:
+            <span className={styles.percent}>{positivePercentage} %</span>
           </p>
         </>
       ) : (
@@ -27,4 +24,3 @@ const Statistics = ({
 };
 
 export default Statistics;
-

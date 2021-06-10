@@ -2,30 +2,31 @@ import React from "react";
 import styles from "./FeedbackOptions.module.css";
 
 const feedbackOptions = ({
-  countGoodFeedback,
-  countNeutralFeedback,
-  countBadFeedback,
+  // countGoodFeedback,
+  // countNeutralFeedback,
+  // countBadFeedback,
+  onLeaveFeedback,
 }) => {
   return (
     <>
       <button
         type="button"
         className={styles.item_good}
-        onClick={() => countGoodFeedback(1)}
+        onClick={() => onLeaveFeedback("good")}
       >
         Good
       </button>
       <button
         type="button"
         className={styles.item_neutral}
-        onClick={() => countNeutralFeedback(1)}
+        onClick={() => onLeaveFeedback("neutral")}
       >
         Neutral
       </button>
       <button
         type="button"
         className={styles.item_bad}
-        onClick={() => countBadFeedback(1)}
+        onClick={() => onLeaveFeedback("bad")}
       >
         Bad
       </button>

@@ -4,39 +4,13 @@ import Section from "../section/Section";
 import Statistics from "../statistics/Statistics";
 import styles from "./Main.module.css";
 
+
 class Main extends Component {
   state = {
     good: 0,
     neutral: 0,
     bad: 0,
   };
-
-  // countGoodFeedback = () => {
-  //   this.setState((prevState) => {
-  //     const { good } = prevState;
-  //     return {
-  //       good: good + 1,
-  //     };
-  //   });
-  // };
-
-  // countNeutralFeedback = () => {
-  //   this.setState((prevState) => {
-  //     const { neutral } = prevState;
-  //     return {
-  //       neutral: neutral + 1,
-  //     };
-  //   });
-  // };
-
-  // countBadFeedback = () => {
-  //   this.setState((prevState) => {
-  //     const { bad } = prevState;
-  //     return {
-  //       bad: bad + 1,
-  //     };
-  //   });
-  // };
 
   onLeaveFeedback = (scoreName) => {
     this.setState((prevState) => {

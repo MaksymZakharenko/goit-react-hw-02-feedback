@@ -1,12 +1,8 @@
 import React from "react";
 import styles from "./FeedbackOptions.module.css";
+import PropTypes from "prop-types";
 
-const feedbackOptions = ({
-  // countGoodFeedback,
-  // countNeutralFeedback,
-  // countBadFeedback,
-  onLeaveFeedback,
-}) => {
+const feedbackOptions = ({ onLeaveFeedback }) => {
   return (
     <>
       <button
@@ -35,3 +31,7 @@ const feedbackOptions = ({
 };
 
 export default feedbackOptions;
+
+feedbackOptions.propTypes = {
+  onLeaveFeedback: PropTypes.func.isRequired,
+};
